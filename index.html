@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YIPS studio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            display: flex;
+            justify-content: center; /* 수평 가운데 정렬 */
+            height: 100vh; /* 화면의 전체 높이를 차지하도록 설정 */
+            margin: 0; /* 기본 마진 제거 */
+            background-image: url('https://newjeans.kr/imgs/bubblegum/photo/NJ_BubbleGum_31.jpg');
+            background-size: cover; /* 배경 이미지를 화면에 꽉 차게 설정 */
+            background-repeat: no-repeat; /* 배경 이미지를 반복하지 않도록 설정 */
+            background-attachment: scroll; /* 배경 이미지가 전체화면이 아닐때 스크롤 되어서 다 보이도록 */
+        }
+        .header-container {
+            text-align: center;
+            margin: 30px;
+        }
+        .header-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            border: none;
+            color: black;
+            font-size: 30px;
+            text-decoration: none;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <button onclick="goToPage('yipsintro.html')">yips studio</button>
+    </div>
+    <div class="header-container">
+        <button onclick="goToPage('live_set.html')">sound</button>
+    </div>
+    <div class="header-container">
+        <button onclick="goToPage('space.html')">space</button>
+    </div>
+    <div class="header-container">
+        <button onclick="goToPage('withpeople.html')">with People</button>
+    </div>
+    <div class="header-container">
+        <button onclick="goToPage('schedule.html')">video</button>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
