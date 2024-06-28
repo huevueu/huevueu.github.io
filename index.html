@@ -20,6 +20,10 @@
             cursor: pointer;
             font-weight: bold;
             color: white;
+            background-image: url('https://www.mastercard.co.kr/content/dam/public/mastercardcom/kr/ko/logos/mc-logo-52.svg'); /* 배경 이미지 경로 */
+            background-size: contain; /* 배경 이미지 크기 조절 */
+            background-position: center; /* 배경 이미지 위치 조절 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 안 함 */
         }
         .text {
             font-size: 10vw;
@@ -28,6 +32,14 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            background: rgba(0, 0, 0, 0); /* 텍스트 배경 투명도 조절 */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        /* 텍스트 선택 시 배경색과 글자색 변경 */
+        ::selection {
+            background: lime; /* 선택 시 배경색 */
+            color: white; /* 선택 시 글자색 */
         }
     </style>
 </head>
@@ -37,7 +49,7 @@
     </div>
     <script>
         // Set the time to wait before redirecting (in milliseconds)
-        var waitTime = 3000; // 1000 milliseconds = 1 second
+        var waitTime = 5000; // 1000 milliseconds = 1 second
 
         // Function to redirect to the next page after the specified wait time
         function autoRedirect() {
