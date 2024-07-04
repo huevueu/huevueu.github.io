@@ -20,21 +20,54 @@
             cursor: pointer;
             font-weight: bold;
             color: white;
-            background-image: url('https://www.mastercard.co.kr/content/dam/public/mastercardcom/kr/ko/logos/mc-logo-52.svg'); /* 배경 이미지 경로 */
-            background-size: contain; /* 배경 이미지 크기 조절 */
-            background-position: center; /* 배경 이미지 위치 조절 */
-            background-repeat: no-repeat; /* 배경 이미지 반복 안 함 */
         }
-        .text {
-            font-size: 10vw;
-            text-align: center;
+        .container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .sections {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .section {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            width: 100%;
+        }
+        .section1 {
+            height: 50%; /* Section 1 높이 설정 */
+            background-color: #FFCD00;
+        }
+        .section2 {
+            height: 25%; /* Section 2 높이 설정 */
+            background-color: #003087;
+        }
+        .section3 {
+            height: 25%; /* Section 3 높이 설정 */
+            background-color: #C8102E;
+        }
+        .text {
+            z-index: 1;
+            font-size: 10vw;
+            text-align: center;
             background: rgba(0, 0, 0, 0); /* 텍스트 배경 투명도 조절 */
             padding: 20px;
             border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
         /* 텍스트 선택 시 배경색과 글자색 변경 */
         ::selection {
@@ -44,12 +77,25 @@
     </style>
 </head>
 <body>
-    <div class="text">
-        PleaseBuyMeThis
+    <div class="container">
+        <div class="text">
+            PleaseBuyMeThis
+        </div>
+    </div>
+    <div class="sections">
+        <div class="section section1">
+            <div></div>
+        </div>
+        <div class="section section2">
+            <div></div>
+        </div>
+        <div class="section section3">
+            <div></div>
+        </div>
     </div>
     <script>
         // Set the time to wait before redirecting (in milliseconds)
-        var waitTime = 50000; // 1000 milliseconds = 1 second
+        var waitTime = 6000; // 1000 milliseconds = 1 second
 
         // Function to redirect to the next page after the specified wait time
         function autoRedirect() {
