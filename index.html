@@ -19,7 +19,7 @@
             font-family: 'Helvetica', sans-serif;
             cursor: pointer;
             font-weight: bold;
-            color: white;
+            color: lime;
         }
         .container {
             position: absolute;
@@ -30,41 +30,18 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        .sections {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        .section1 {
-            height: 50%; /* Section 1 높이 설정 */
-            background-color: #FFCD00;
-        }
-        .section2 {
-            height: 25%; /* Section 2 높이 설정 */
-            background-color: #003087;
-        }
-        .section3 {
-            height: 25%; /* Section 3 높이 설정 */
-            background-color: #C8102E;
+            background-image: url('https://github.com/huevueu/huevueu.github.io/blob/main/ben1.png?raw=true'); /* 이미지 URL 수정 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .text {
             z-index: 1;
             font-size: 10vw;
             text-align: center;
-            background: rgba(0, 0, 0, 0); /* 텍스트 배경 투명도 조절 */
-            padding: 20px;
-            border-radius: 10px;
+            background: none; /* 텍스트 배경 투명도 조절 */
+            padding: 4vw;
+            border-radius: 0;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -74,12 +51,46 @@
             background: lime; /* 선택 시 배경색 */
             color: white; /* 선택 시 글자색 */
         }
+
+        /* 화면 크기가 1024px 이상일 때 섹션들 표시 */
+        @media (min-width: 1024px) {
+            .container {
+                background: none; /* 배경 이미지 제거 */
+            }
+            .sections {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            .section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .section1 {
+                height: 50%; /* Section 1 높이 설정 */
+                background-color: #FFCD00;
+            }
+            .section2 {
+                height: 25%; /* Section 2 높이 설정 */
+                background-color: #003087;
+            }
+            .section3 {
+                height: 25%; /* Section 3 높이 설정 */
+                background-color: #C8102E;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="text">
-            PleaseBuyMeThis
+            pleasebuymethis
         </div>
     </div>
     <div class="sections">
