@@ -6,122 +6,158 @@
     <link rel="icon" href="/heart-solid.png" type="image/png">
     <title>PleaseBuyMeThis</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        body, html {
+            height: 100vh;
             margin: 0;
-            padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: black;
-            font-family: 'Helvetica', sans-serif;
+            flex-direction: column;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 3vw 0;
+        }
+        .header-container button, .list-container button {
+            background-color: white;
             cursor: pointer;
             font-weight: bold;
-            color: lime;
+            border: none;
+            color: black;
+            text-decoration: none;
+            margin: 3vw 0;
+            transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
-        .container {
-            position: absolute;
-            top: 0;
-            bottom: 0;
+        .header-container button:hover, .list-container button:hover {
+            font-size: 6vw;
+            background-color: lime; /* 변경된 hover 배경색 */
+            color: #FA58F4; /* 변경된 hover 글자색 */
+        }
+
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section1 {
+            display: flex;
+            width: 100%;
+            height: 15%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            font-size: 5vw;
+            font-weight: bold;
+        }
+        .section2 {
+            height: 75%;
+            flex: 75%;
+            overflow-y: auto;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background-image: url('https://github.com/huevueu/huevueu.github.io/blob/main/ben1.png?raw=true'); /* 이미지 URL 수정 */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: white;
+            justify-content: flex-start;
         }
-        .text {
-            z-index: 1;
-            font-size: 10vw;
+        .header-container {
             text-align: center;
-            background: none; /* 텍스트 배경 투명도 조절 */
-            padding: 4vw;
-            border-radius: 0;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align items at the top */
+            align-items: center;
+            padding: 10px 0; /* Optional: to give some padding */
         }
-        /* 텍스트 선택 시 배경색과 글자색 변경 */
-        ::selection {
-            background: lime; /* 선택 시 배경색 */
-            color: white; /* 선택 시 글자색 */
+        .header-container button {
+            background-color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            border: none;
+            color: black;
+            font-size: 5vw;
+            text-decoration: none;
+            margin: 3vw 0;
+            transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* 화면 크기가 1024px 이상일 때 섹션들 표시 */
-        @media (min-width: 1024px) {
-            .container {
-                background: none; /* 배경 이미지 제거 */
-            }
-            .sections {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
-            .section {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-            }
-            .section1 {
-                height: 50%; /* Section 1 높이 설정 */
-                background-color: #FFCD00;
-            }
-            .section2 {
-                height: 25%; /* Section 2 높이 설정 */
-                background-color: #003087;
-            }
-            .section3 {
-                height: 25%; /* Section 3 높이 설정 */
-                background-color: #C8102E;
-            }
+        .section3 {
+            height: 10%; /* Adjust height for section 3 */
+            background-color: white;
+            color: black;
+            font-size: 1vw;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            color: black;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: white;
+            border: none;
+            color: black;
+            font-size: 5vw;
+            cursor: pointer;
+            padding: 3vw;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8vw; /* 스크롤바의 너비 */
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; /* 스크롤바 트랙(바탕)의 색상 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: lime; /* 스크롤바의 색상 */
+            border-radius: 1vw;
+        }
+
+        ::selection {
+            background: lime; /* 선택 시 배경색 */
+            color: #FA58F4; /* 선택 시 글자색 */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="text">
-            pleasebuymethis
+
+    <div class="section section1">
+        <h2>PLEASEBUYMETHIS.COM</h2>
+    </div>
+    <div class="section section2">
+        <div class="header-container">
+            <button onclick="goToPage('wanted.html')">All Items</button>
+            <button onclick="goToPage('apparel.html')">Apparel</button>
+            <button onclick="goToPage('shoes.html')">Shoes</button>
+            <button onclick="goToPage('bag.html')">Bag</button>
+            <button onclick="goToPage('Electronic.html')">Electronic</button>
+            <button onclick="goToPage('Accesories.html')">Accesories</button>
+            <button onclick="goToPage('interior.html')">Interior</button>
+            <button onclick="goToPage('sip.html')">~ ₩100,000</button>
+            <button onclick="goToPage('osip.html')">₩100,000 ~ ₩500,000</button>
+            <button onclick="goToPage('baek.html')">₩500,000 ~ ₩1,000,000</button>
+            <button onclick="goToPage('overbaek.html')">₩1,000,000 ~</button>
         </div>
     </div>
-    <div class="sections">
-        <div class="section section1">
-            <div></div>
-        </div>
-        <div class="section section2">
-            <div></div>
-        </div>
-        <div class="section section3">
-            <div></div>
-        </div>
+    <div class="section section3">
+        <h2>Run by Kang Kyu-Hyun</h2>
     </div>
+
     <script>
-        // Set the time to wait before redirecting (in milliseconds)
-        var waitTime = 6000; // 1000 milliseconds = 1 second
-
-        // Function to redirect to the next page after the specified wait time
-        function autoRedirect() {
-            setTimeout(function() {
-                window.location.href = 'wanted.html';
-            }, waitTime);
+        function goToPage(page) {
+            window.location.href = page;
         }
-
-        // Call the function to start the redirect timer
-        window.onload = autoRedirect;
-
-        // Redirect immediately on click
-        document.addEventListener('click', function() {
-            window.location.href = 'wanted.html';
-        });
     </script>
 </body>
 </html>
