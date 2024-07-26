@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shoes</title>
+    <link rel="icon" href="/heart-solid.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            color: white;
+        }
+        ::-webkit-scrollbar {
+            width: 0.5vw; /* 스크롤바의 너비 */
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; /* 스크롤바 트랙(바탕)의 색상 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: lime; /* 스크롤바의 색상 */
+            border-radius: 1vw;
+        }
+        .section1 {
+            display: flex;
+            width: 100%;
+            height: 14%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            font-size: 5vw;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: calc(100vh - 14%);
+        }
+        .box {
+            width: calc(25% - 4px);
+            margin: 2px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            font-size: 2vw;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: background-size 0.3s ease;
+        }
+        .box:hover,
+        .box.active {
+            background-size: 110%;
+        }
+        .box::before {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+        .box-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        .box::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        .box:hover::after,
+        .box.active::after {
+            opacity: 1;
+        }
+        .box:hover .box-content,
+        .box.active .box-content {
+            opacity: 1;
+        }
+        .blur {
+            filter: blur(5px); /* 블러 효과 추가 */
+        }
+        ::selection {
+            background: lime; /* 선택 시 배경색 */
+            color: white; /* 선택 시 글자색 */
+        }
+        .box-button {
+            margin-top: 3vw;
+            padding: 1vw 4vw;
+            background-color: lime;
+            border: none;
+            color: black;
+            font-size: 1.3vw;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .box-button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="section1">Shoes!</div>
+    <div class="container">
+        <div class="box blur" data-image="G Patch camo" style="background-image: url('https://gallerydept.com/cdn/shop/products/02_Front_3e7a8895-1b3e-42b5-aeb1-3f78ca3efd77.jpg?v=1650036997');" data-link="https://gallerydept.com/collections/shorts/products/g-patch-chocolate-chip-camo-cargo-shorts">
+            <div class="box-content">
+                GalleryDept<br>G Patch camo<br>cargo shorts<br>₩1,763,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Mac mini" style="background-image: url('https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-mini-202301-gallery-1?wid=4000&hei=3072&fmt=jpeg&qlt=90&.v=1670630966384');" data-link="https://www.apple.com/kr/shop/buy-mac/mac-mini/apple-m2-%EC%B9%A9(8%EC%BD%94%EC%96%B4-cpu-%EB%B0%8F-10%EC%BD%94%EC%96%B4-gpu)-512gb">
+            <div class="box-content">
+                Apple Mac mini<br>₩1,120,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Kapital" style="background-image: url('https://www.kapital-webshop.jp/client_info/KAPITAL/itemimage/K2105XB553/K2105XB553_3.jpg');" data-link="https://www.kapital-webshop.jp/item/K2105XB553.html">
+            <div class="box-content">
+                Kapital<br>ホピバスケッ<br>ト柄キャンバス<br>TOTE BAG<br>₩371,800
+
+            </div>
+        </div>
+        <div class="box blur" data-image="DEPT DE LA GALERIE" style="background-image: url('https://gallerydept.com/cdn/shop/files/Dept_De_La_Galerie_LS_Pink_Back_720x.jpg?v=1682970171');" data-link="https://gallerydept.com/collections/long-sleeve/products/la-galerie-ls-salmon">
+            <div class="box-content">
+                GalleryDept<br>DEPT DE LA GALERIE<br>L/S pocket tee<br>₩424,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="KK_SS TEE/LOVE BEYOND/BLK" style="background-image: url('https://nubiantokyo.com/cdn/shop/files/KosukeKawamuraXSAINTMxxxxxx_240422_01-1_700x.jpg?v=1713934915');" data-link="https://nubiantokyo.com/products/sm-ys8-0000-c23">
+            <div class="box-content">
+                SAINT Mxxxxxx<br>KK_SS TEE/LOVE BEYOND/BLK<br>₩341,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Lego" style="background-image: url('https://www.lego.com/cdn/cs/set/assets/bltde770d06234b6a19/42171_boxprod_v39.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1');" data-link="https://www.lego.com/ko-kr/product/mercedes-amg-f1-w14-e-performance-42171">
+            <div class="box-content">
+                Lego<br>Mercedes-AMG F1 W14 Performance<br>₩289,900
+
+            </div>
+        </div>
+        <div class="box blur" data-image="San Francisco Giants" style="background-image: url('https://img.mad4sport.co.kr/TreeImgmad4sport/fanaticsus/40000537/40000537_479_z2.jpg');" data-link="https://mad4sport.co.kr/product/detail.html?product_no=36247&cate_no=4&display_group=1">
+            <div class="box-content">
+                Nike San Francisco Giants<br>₩206,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="cotton canvas bag" style="background-image: url('https://image.thehyundai.com/static/8/1/6/89/A1/hnm40A1896185_5_900.jpg');" data-link="https://www.arket.com/ko-kr/men/c/warm-season-staple/product.cotton-canvas-bag-blue-garment-dyed.1223305001.html">
+            <div class="box-content">
+                Arket cotton canvas bag<br>₩55,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Studio Buds +" style="background-image: url('https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQLK3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1682361480894');" data-link="https://www.apple.com/shop/product/MQLK3LL/A/beats-studio-buds-true-wireless-noise-cancelling-earbuds-transparent">
+            <div class="box-content">
+                Beats Studio Buds +<br>₩229,000
+
+            </div>
+        </div>
+        <div class="box" data-image="O-Rei T7" style="background-image: url('https://shop.athleta.co.jp/cdn/shop/files/10019_WHT_e587110d-e31c-42b9-84b8-ef757d2cd427.jpg?v=1711432493&width=1000');" data-link="https://shop.athleta.co.jp/collections/all/products/10019">
+            <div class="box-content">
+                ATHLETA O-Rei T7<br>₩187,000
+                <button class="box-button">Buy Now</button>
+            </div>
+        </div>
+        <div class="box blur" data-image="xdg-xz" style="background-image: url('https://www.pioneerdj.com/-/media/pioneerdj/images/products/all-in-one-system/xdj-xz/xdj-xz_prm_frontangle_usb.png?h=1316&w=1792&hash=84D4425B18AEF6E11F0C897CDF6A390A');" data-link="https://m.djkoreamall.com/goods/goods_view.php?goodsNo=1000001011">
+            <div class="box-content">
+                Pioneer xdg-xz<br>₩3,880,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Satchidananda Tee" style="background-image: url('https://kr.supreme.com/cdn/shop/files/T55_SS24_SatchidanandaTee_Moss_720x.jpg?v=1718710907');" data-link="https://kr.supreme.com/products/7rlqjbv46ilu4mbh">
+            <div class="box-content">
+                Supreme<br>Satchidananda Tee<br>₩84,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Tonal Logo Towel" style="background-image: url('https://kr.supreme.com/cdn/shop/files/A88_SS24_SupremeTowel_Camo01_Reshoot_9610c97e-48c7-4b65-b84a-581066e9972e_720x.jpg?v=1718221688');" data-link="https://kr.supreme.com/products/19nj0hwhacb1kpyn">
+            <div class="box-content">
+                Supreme<br>Tonal Logo Towel<br>₩158,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="CLEAN WHITE SOCKS" style="background-image: url('https://gallerydept.com/cdn/shop/products/110_Front_720x.jpg?v=1617234972');" data-link="https://gallerydept.com/products/clean-white-socks">
+            <div class="box-content">
+                GalleryDept<br>CLEAN WHITE SOCKS<br>₩92,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Helinox Savanna Chair" style="background-image: url('http://helinoxstore.co.kr/shopimages/helinox/0010050001932.jpg?1709715914');" data-link="http://www.helinoxstore.co.kr/shop/shopdetail.html?branduid=3550391&xcode=001&mcode=005&scode=007&type=X&sort=manual&cur_code=001005&search=&GfDT=Z213UF0%3D">
+            <div class="box-content">
+                Helinox Savanna Chair<br>₩220,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="iPhone 15 Pro case" style="background-image: url('https://www.rimowa.com/on/demandware.static/-/Sites-rimowa-master-catalog-final/default/dw4ce89d07/images/large/95115013_1.png');" data-link="https://www.rimowa.com/kr/en/accessories/iphone-cases/iphone-15-pro/95115013.html">
+            <div class="box-content">
+                Rimowa<br>iPhone 15 Pro case<br>₩250,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Varsity Tee" style="background-image: url('https://kr.supreme.com/cdn/shop/files/T17_SS24_VarsityTee_BrightBlue_720x.jpg?v=1718710907');" data-link="https://kr.supreme.com/products/3gr1k-nq_tkde-ir">
+            <div class="box-content">
+                Supreme<br>Varsity Tee<br>₩74,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Nylon Painter Short" style="background-image: url('https://kr.supreme.com/cdn/shop/files/SH31_SS24_NylonPainterShort_DarkBrown01_0a146284-0b3f-4d4f-b2d8-168bfc12a1c1_720x.jpg?v=1718221685');" data-link="https://kr.supreme.com/products/d2-smullximtjxaq">
+            <div class="box-content">
+                Supreme<br>Nylon Painter Short<br>₩218,000
+
+            </div>
+        </div>
+         <div class="box" data-image="BAPE STA OS" style="background-image: url('https://ithk-pro-itmall-item.oss-cn-hongkong.aliyuncs.com/2/product/0ZXSHMX91314MWHB/0ZXSHMX91314MWHB-pdp-2.jpg?x-oss-process=image/resize,m_pad,h_750,w_600/auto-orient,1/quality,Q_80');" data-link="https://int.bape.com/item/0ZXSHMX91314M.html?dwvar_0ZXSHMX91314M_color=WHB">
+            <div class="box-content">
+                Bape<br>BAPE STA OS<br>₩488,000
+                <button class="box-button">Buy Now</button>
+            </div>
+        </div>
+        <div class="box blur" data-image="TNT FARAH Necklace Gold" style="background-image: url('https://thisisneverthat.com/cdn/shop/files/TNT-FARAH-Necklace-Gold1_1080x.jpg?v=1714466334');" data-link="https://thisisneverthat.com/collections/accessories/products/tnt-farah-necklace">
+            <div class="box-content">
+                Thisisneverthat<br>TNT FARAH Necklace Gold<br>₩149,000
+
+            </div>
+        </div>
+         <div class="box blur" data-image="Flannel Check Shirt Olive" style="background-image: url('https://thisisneverthat.com/cdn/shop/files/Flannel-Check-Shirt-OLIVE1_1080x.jpg?v=1719194403');" data-link="https://thisisneverthat.com/collections/shirts/products/flannel-check-shirt">
+            <div class="box-content">
+                Thisisneverthat<br>Flannel Check Shirt Olive<br>₩83,300
+
+            </div>
+        </div>
+        <div class="box blur" data-image="stone island compass badge shell" style="background-image: url('https://cdn-images.farfetch-contents.com/22/88/91/84/22889184_52972359_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/men/stone-island--item-22889184.aspx?storeid=14806">
+            <div class="box-content">
+                Stone Island<br>Compass Badge Shell<br>₩1,178,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Sunnei parallelepipedo" style="background-image: url('https://cdn-images.farfetch-contents.com/22/02/80/05/22028005_51908114_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/men/sunnei--item-22028005.aspx">
+            <div class="box-content">
+                Sunnei<br>Parallelepipedo Tote<br>₩627,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Seletti love" style="background-image: url('https://cdn-images.farfetch-contents.com/13/47/51/02/13475102_47840507_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/women/seletti--item-13475102.aspx?storeid=13537&">
+            <div class="box-content">
+                Seletti<br>Love in Bloom Vase<br>₩119,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="JW Anderson Intarsia" style="background-image: url('https://cdn-images.farfetch-contents.com/21/28/79/58/21287958_48216432_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/men/jw-anderson--item-21287958.aspx?storeid=9446">
+            <div class="box-content">
+                JW Anderson<br>Intarsia knit zip hoodie<br>₩644,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="CP Company Nylon B Shoulder Bag" style="background-image: url('https://cdn-images.farfetch-contents.com/22/39/70/63/22397063_52381252_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/men/cp-company-b-item-22397063.aspx?storeid=14279">
+            <div class="box-content">
+                CP Company<br>Nylon B Shoulder Bag<br>₩338,000
+
+            </div>
+        </div>
+        <div class="box blur" data-image="Daum" style="background-image: url('https://cdn-images.farfetch-contents.com/20/16/63/95/20166395_53705563_1000.jpg');" data-link="https://www.farfetch.com/kr/shopping/men/daum--item-20166395.aspx?storeid=12382">
+            <div class="box-content">
+                Daum<br>Amber Grey Crystal Statue<br>₩5,490,000
+
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const link = this.closest('.box').getAttribute('data-link');
+                window.location.href = link;
+            });
+        });
+
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('touchstart', function() {
+                this.classList.add('active');
+            });
+            box.addEventListener('touchend', function() {
+                this.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
