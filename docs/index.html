@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/heart-solid.png" type="image/png">
+    <title>PleaseBuyMeThis</title>
+    <style>
+        body, html {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 3vw 0;
+        }
+        .header-container button, .list-container button {
+            background-color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: black;
+            text-decoration: none;
+            margin: 3vw 0;
+            transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        .header-container button:hover, .list-container button:hover {
+            font-size: 6vw;
+            background-color: lime; /* 변경된 hover 배경색 */
+            color: #FA58F4; /* 변경된 hover 글자색 */
+        }
+
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section1 {
+            display: flex;
+            width: 100%;
+            height: 15%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            font-size: 5vw;
+            font-weight: bold;
+        }
+        .section2 {
+            height: 75%;
+            flex: 75%;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            justify-content: flex-start;
+        }
+        .header-container {
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align items at the top */
+            align-items: center;
+            padding: 10px 0; /* Optional: to give some padding */
+        }
+        .header-container button {
+            background-color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            border: none;
+            color: black;
+            font-size: 5vw;
+            text-decoration: none;
+            margin: 3vw 0;
+            transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .section3 {
+            height: 10%; /* Adjust height for section 3 */
+            background-color: white;
+            color: black;
+            font-size: 1vw;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            color: black;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: white;
+            border: none;
+            color: black;
+            font-size: 5vw;
+            cursor: pointer;
+            padding: 3vw;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8vw; /* 스크롤바의 너비 */
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; /* 스크롤바 트랙(바탕)의 색상 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: lime; /* 스크롤바의 색상 */
+            border-radius: 1vw;
+        }
+
+        ::selection {
+            background: lime; /* 선택 시 배경색 */
+            color: #FA58F4; /* 선택 시 글자색 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section section1">
+        <h2>PLEASEBUYMETHIS.COM</h2>
+    </div>
+    <div class="section section2">
+        <div class="header-container">
+            <button onclick="goToPage('wanted.html')">All Items</button>
+            <button onclick="goToPage('apparel.html')">Apparel</button>
+            <button onclick="goToPage('shoes.html')">Shoes</button>
+            <button onclick="goToPage('bag.html')">Bag</button>
+            <button onclick="goToPage('Electronic.html')">Electronic</button>
+            <button onclick="goToPage('Accesories.html')">Accesories</button>
+            <button onclick="goToPage('interior.html')">Interior</button>
+            <button onclick="goToPage('sip.html')">~ ₩100,000</button>
+            <button onclick="goToPage('osip.html')">₩100,000 ~ ₩500,000</button>
+            <button onclick="goToPage('baek.html')">₩500,000 ~ ₩1,000,000</button>
+            <button onclick="goToPage('overbaek.html')">₩1,000,000 ~</button>
+        </div>
+    </div>
+    <div class="section section3">
+        <h2>Run by Kang Kyu-Hyun</h2>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
