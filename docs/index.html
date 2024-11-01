@@ -93,16 +93,18 @@
             }
         }
         .section2 {
-            flex: 1;
-            overflow-y: auto;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            justify-content: flex-start;
-            height: auto;
-            padding-top: 15vh;
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
         }
         .section2-text {
             flex: 1;
@@ -236,17 +238,20 @@
             .section2-text {
                 width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
                 padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                max-width: 100%;
             }
 
             .section2 img {
              width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
                 padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                max-width: 100%;
             }
 
             .video-container {
              width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
                 padding: 0; /* 양쪽에 약간의 패딩 추가 */
                 padding-bottom: 56.25%;
+                max-width: 100%;
             }
 
         }
