@@ -93,22 +93,22 @@
             }
         }
         .section2 {
-    flex: 1;
-    overflow-y: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    justify-content: flex-start;
-    padding-top: 15vh;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
+            flex: 1;
+            overflow-y: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            justify-content: flex-start;
+            padding-top: 15vh;
+            padding-left: 0;
+            padding-right: 0;
+            box-sizing: border-box;
         }
         .section2-text {
             flex: 1;
-            width: 800px; /* 기본 웹 버전 너비 고정 */
+            width: 800px;
             align-items: center;
             color: black;
             font-size: 14px;
@@ -138,14 +138,13 @@
             padding: 10px;
             width: 100%;
         }
-        /* Side menu styles */
         .side-menu {
             height: 100%;
             width: 250px;
             position: fixed;
             top: 0;
             left: -250px;
-            background-color: rgba(17, 17, 17, 0.8);;
+            background-color: rgba(17, 17, 17, 0.8);
             overflow-x: hidden;
             transition: 0.5s;
             z-index: 20;
@@ -209,51 +208,41 @@
             display: block;
         }
         .tracklist-table {
-    width: 100%;
-    max-width: 800px;
-    margin: 1em auto;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
-}
-
-.tracklist-table th, .tracklist-table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-.tracklist-table th {
-    background-color: #333;
-    color: white;
-}
-
-.tracklist-table tr:hover {
-    background-color: lime;
-    font-color:black;
-}
-
-
-        /* 모바일 버전에서만 적용되는 스타일 */
+            width: 100%;
+            max-width: 800px;
+            margin: 1em auto;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+        .tracklist-table th, .tracklist-table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tracklist-table th {
+            background-color: #333;
+            color: white;
+        }
+        .tracklist-table tr:hover {
+            background-color: lime;
+        }
         @media (max-width: 768px) {
             .section2-text {
-                width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
-                padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                width: 95%;
+                padding: 0 10px;
                 max-width: 100%;
             }
-
             .section2 img {
-             width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
-                padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                width: 95%;
+                padding: 0 10px;
                 max-width: 100%;
             }
-
             .video-container {
-             width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
-                padding: 0; /* 양쪽에 약간의 패딩 추가 */
+                width: 95%;
+                padding: 0;
                 padding-bottom: 56.25%;
                 max-width: 100%;
             }
-
         }
     </style>
 </head>
@@ -266,92 +255,10 @@
         <div>Joe Kay | Boiler Room | London "2023-09-16"</div>
     </div>
     <div class="section section2">
-        <div class="section2-content">
-            <img src="https://boilerroom.tv/cdn-cgi/image/width=800,height=800,fit=cover,format=auto/https://s3.eu-west-2.amazonaws.com/stash-archive-master-videos/assets/1-1-line-up-0-00-02-20-1-kbyqtqjkhg.png"
-                 alt="Sample Image 1">
-           <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/X6ko4cklXjs"
-                        frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-           </div>
-        </div>
-        <div class="section2-text">
-            <p>Tracklist
-            </p>
-
-             <table class="tracklist-table">
-
-        <tbody>
-            <tr>
-                <td>01</td>
-                <td>Paris Fried Chicken</td>
-                <td>Alec Carlsson</td>
-            </tr>
-            <tr>
-                <td>02</td>
-                <td>Straight From The Underground</td>
-                <td> Løne Døg</td>
-            </tr>
-            <tr>
-                <td>03</td>
-                <td>Underground (Original Mix)</td>
-                <td>Birdee</td>
-            </tr>
-            <tr>
-                <td>04</td>
-                <td>A Vida Em Seus Metodos Diz Camla (Vibes Vers) </td>
-                <td>Malive, Dimelo</td>
-            </tr>
-            <tr>
-                <td>05</td>
-                <td>Flower Power</td>
-                <td>Di Saronno</td>
-            </tr>
-            <tr>
-                <td>06</td>
-                <td>Wanna Be With U</td>
-                <td>Kolter</td>
-            </tr>
-            <tr>
-                <td>07</td>
-                <td>Come Together</td>
-                <td>Ruze</td>
-            </tr>
-            <tr>
-                <td>08</td>
-                <td>Love Hepburn</td>
-                <td>Mochakk, Kaddu</td>
-            </tr>
-            <tr>
-                <td>09</td>
-                <td>J.A.W.S</td>
-                <td>Lxury</td>
-            </tr>
-
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-
-    <br>
-            <p>
-                 Inside Gou HQ, the bright overhead lights contrast with the early-April rain outside.
-                The sprawling room — which has a vibe that’s more “friend’s apartment”
-                than sterile corporate sanctum — is outfitted with a wooden meeting table,
-                full bookshelves and a plush green velvet couch from which Gou’s touring manager
-                arises to serve Gou and me black coffee in little terra cotta mugs on peace sign-shaped coasters.
-                Gou wears baggy jeans, a black sweater that covers her many tattoos and sunglasses with
-                silver reflective lenses that offer only occasional glimpses of her eyes. Her hair is piled
-                in a loose bun, her skin is flawless, and even in casual mode, she’s giving cool-girl glamour.
-                She offers a quick handshake, closes the window to make sure the room is quiet, then sits
-                down to attend to business.
-            </p>
-            <br>
-            <p>
-                Kang GyuHyun
-            </p>
-        </div>
+        <!-- 게시물 목록이 표시될 위치 -->
+        <div id="posts"></div>
     </div>
+
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">&times;</button>
         <div class="top-section">
@@ -367,10 +274,34 @@
     </div>
 
     <script>
+        // 게시물 목록을 API에서 불러와서 표시하는 함수
+        async function loadPosts() {
+            try {
+                const response = await fetch('http://localhost:5000/api/posts');
+                const posts = await response.json();
+                const postsContainer = document.getElementById('posts');
+                postsContainer.innerHTML = posts.map(post => `
+                    <div style="margin-bottom: 20px;">
+                        <h2>${post.title}</h2>
+                        <p>${post.content}</p>
+                        <small>작성일: ${new Date(post.createdAt).toLocaleDateString()}</small>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('게시물 불러오기 오류:', error);
+            }
+        }
+
+        // 초기 로드 시 게시물 불러오기
+        loadPosts();
+
+        // 메뉴 토글 함수
         function toggleMenu() {
             var menu = document.getElementById("sideMenu");
             menu.classList.toggle("active");
         }
+
+        // 페이지 이동 함수
         function goToPage(page) {
             window.location.href = page;
         }
