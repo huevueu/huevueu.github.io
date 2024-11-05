@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetSet!</title>
+    <style>
+        body, html {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow-x: hidden;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .header-container, .list-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .header-container button, .list-container button {
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            transition: font-size 0.3s ease;
+        }
+        .header-container button:hover, .list-container button:hover {
+            font-size: 20px;
+        }
+        .menu-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            left: 1vh;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section1 {
+            height: 10%;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .section8 {
+            height: 4%;
+            background-color: white;
+            color: lime;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 10%;
+            width: 100%;
+            z-index: 9;
+        }
+        .section8 div {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+            animation: scroll-to-center 1s ease forwards;
+        }
+        @keyframes scroll-to-center {
+            0% {
+                transform: translateX(100vw);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .section2 {
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+        }
+        .section2-text {
+            flex: 1;
+            width: 800px; /* 기본 웹 버전 너비 고정 */
+            align-items: center;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .section2 img {
+            width: 800px;
+            height: auto;
+            object-fit: cover;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: black;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+        .nav-buttons button {
+            background-color: transparent;
+            border: none;
+            color: lime;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+        }
+        /* Side menu styles */
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: rgba(17, 17, 17, 0.8);;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 30px;
+        }
+        .side-menu .top-section,
+        .side-menu .bottom-section {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .side-menu .top-section {
+            padding-top: 20px;
+        }
+        .side-menu button {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            text-align: left;
+        }
+        .side-menu button:hover {
+            font-size: 28px;
+            color: lime;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+        }
+        .side-menu.active {
+            left: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        .video-container {
+            position: relative;
+            width: 800px;
+            padding-bottom: 56.25%;
+            margin: 1vw auto;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .tracklist-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 1em auto;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.tracklist-table th, .tracklist-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tracklist-table th {
+    background-color: #333;
+    color: white;
+}
+
+.tracklist-table tr:hover {
+    background-color: lime;
+    font-color:black;
+}
+
+
+        /* 모바일 버전에서만 적용되는 스타일 */
+        @media (max-width: 768px) {
+            .section2-text {
+                width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
+                padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                max-width: 100%;
+            }
+
+            .section2 img {
+             width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
+                padding: 0 10px; /* 양쪽에 약간의 패딩 추가 */
+                max-width: 100%;
+            }
+
+            .video-container {
+             width: 95%; /* 모바일 화면에서는 너비를 95%로 설정 */
+                padding: 0; /* 양쪽에 약간의 패딩 추가 */
+                padding-bottom: 56.25%;
+                max-width: 100%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="section section1">
+        <h2>SET</h2>
+        <button class="menu-button" onclick="toggleMenu()">+</button>
+    </div>
+    <div class="section section8">
+        <div>Brois Brejcha | Cercle | "2024-04-18"</div>
+    </div>
+    <div class="section section2">
+        <div class="section2-content">
+            <img src="https://github.com/huevueu/huevueu.github.io/blob/main/boris.png?raw=true"
+                 alt="Sample Image 1">
+           <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/1MobY_vR7-g?si"
+                        frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+           </div>
+        </div>
+        <div class="section2-text">
+            <p>Tracklist
+            </p>
+
+             <table class="tracklist-table">
+
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>Level One</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Up Down Jumper</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Dimension</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>Captain Nemo</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>Darkness (ft Ginger)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>Infinity (ft Désirée) (unrelased)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>Keep Rollin</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>Space X</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>Vienna (ft Malena Narvay)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>10</td>
+
+                <td>I Want You (ft Ginger)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>11</td>
+
+                <td>Atlantis (unrelased)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>12</td>
+
+                <td>The Music is The Dancer</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>13</td>
+
+                <td>Timelapse</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>14</td>
+
+                <td>Universe of Love</td>
+                <td>Boris Brejcha</td>
+            </tr>
+            <tr>
+            <td>15</td>
+
+                <td>Hold Me (unrelased)</td>
+                <td>Boris Brejcha</td>
+            </tr>
+
+
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <br>
+            <p>
+                  From this space, I plan to start writing reviews about DJ sets.
+                <br>
+                From this space, I plan to start writing reviews about DJ sets.
+                <br>
+                From this space, I plan to start writing reviews about DJ sets.
+                <br>
+                From this space, I plan to start writing reviews about DJ sets.
+                <br>
+                From this space, I plan to start writing reviews about DJ sets.
+            </p>
+            <br>
+            <p>
+                Kang KyuHyun
+            </p>
+        </div>
+    </div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <div class="top-section">
+            <button onclick="goToPage('index.html')">Home</button>
+            <button onclick="goToPage('wanted.html')">I Wanna</button>
+        </div>
+        <div class="bottom-section">
+            <div class="list-container">
+                <button onclick="goToPage('sub.html')">Disclosure b2b Mochakk | Cercle</button>
+                <button onclick="goToPage('boris.html')">Boris Brejcha | Cercle</button>
+                <button onclick="goToPage('ody.html')">CERCLE OYSSEY</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("sideMenu");
+            menu.classList.toggle("active");
+        }
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
